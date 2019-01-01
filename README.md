@@ -1,2 +1,57 @@
 # WindowsActivityMonitor
-Software to monitor windows activities like mouse movement, to take screenshots, record web sites visited...
+Software to monitor windows activities like mouse movement, to take screenshots, record web sites visited, scans open ports
+
+Reads configrations from config.ini located in project build folder of QT and generates logs accordingly.
+
+config.ini
+[GlobalSettings]
+;format examples
+;ex: 21 May 2001 14:13:09
+;dd.MM.yyyy 		21.05.2001
+;ddd MMMM d yy 		Tue May 21 01
+;hh:mm:ss.zzz		14:13:09.042
+;h:m:s ap		2:13:9 pm
+TimeStampFormat = yyyy-MM-dd hh:mm:ss
+DateFormat = yyyyMMdd
+
+[MouseCapture]
+;valid values: 0,1
+Enable = 0
+;specify time in minutes
+CaptureDuration = 1
+;specify folder path. for windows path add additional \ before \. i.e add '\\' instead of '\'
+LogFolderPath =
+LogFileNamePrefix = MouseNotMovedLogs
+
+[ScreenCapture]
+Enable = 1
+CaptureDuration = 1 
+LogFolderPath = 
+ImageType = JPEG
+;add value between 0 to 100
+ImageQualityRatio = 10
+
+[ScanNetworkPorts]
+Enable = 0
+CaptureDuration = 1 
+LogFolderPath = 
+LogFileNamePrefix = OpenPorts
+
+[KeyBoardCapture]
+Enable = 1
+CaptureDuration = 1 
+LogFolderPath = 
+LogFileNamePrefix = KeysPressed
+
+[ClipBoardCapture]
+Enable = 1
+CaptureDuration = 1 
+LogFolderPath = 
+LogFileNamePrefix = ClipboardData
+
+[URLCapture]
+Enable = 1
+CaptureDuration = 1 
+LogFolderPath = 
+LogFileNamePrefix = URLData
+Port = 80
